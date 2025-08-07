@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 # Conexão com o Salesforce
 sf = Salesforce(
-     username= "integracao@vila11.com.br"
-    ,password = "meDe9ustl1u+=+aproGo"
-    ,security_token="ajFMwksVpacwZpuoS3ZLEhYLE"
-    # domain = 'login' ou 'test'
+    username=os.environ.get("SF_USERNAME"),
+    password=os.environ.get("SF_PASSWORD"),
+    security_token=os.environ.get("SF_TOKEN"),
+    domain="login"
 )
 
 @app.route("/precos", methods=["GET"])
